@@ -1,10 +1,10 @@
 package mx.edu.utez.videojuego.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import mx.edu.utez.videojuego.model.Partida;
-import mx.edu.utez.videojuego.model.Tiro;
 
 @Data
 public class RealizarTiroDTO {
-    private Long tiroId;
+    @NotNull(message = "El ID de la partida es obligatorio para realizar el tiro.")
+    private Long partidaId;
 }

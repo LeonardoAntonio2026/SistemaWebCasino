@@ -15,7 +15,8 @@ public class RecargarSaldoService {
     }
 
     public Jugador RecargarSaldo(RecargarSaldoDTO dto){
-        Jugador jugadorActual = jugadorRepository.findById(dto.getJugadorId()).orElseThrow(() -> new ResourceNotFoundException("No se encontro ese jugador"));
-        return jugadorActual;
+        Jugador jugadorActual = jugadorRepository.findById(dto.getJugadorId()).orElseThrow(() -> new ResourceNotFoundException("El jugador con ID " + dto.getJugadorId() + " no existe."));
+        jugadorActual.setSaldo(jugadorActual.getSaldo() + dto.getSaldo());
+        return jugadorRepository.save(jugadorActual);
     }
 }

@@ -17,7 +17,8 @@ public class Partida {
 
     private String fecha;
 
-    private String estado;
+    @Enumerated(EnumType.STRING)
+    private EstadoPartida estado;
 
     @ManyToOne
     private Jugador jugador;
